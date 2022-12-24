@@ -1,0 +1,12 @@
+.todo-parent {
+    width: 30%;
+    justify-content: space-between;
+    display: flex;
+    margin: auto;
+    column-gap: 20px;
+    align-items: center;
+    button {
+        height: 25px;
+        width: 25px;
+    }
+}
