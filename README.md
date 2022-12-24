@@ -1,5 +1,5 @@
 # PERN-todoList
-a todo list using PERN (PostgreSQL, Express, React, Node) stack. 
+a todo list using PERN (PostgreSQL, Express, React (with TS), and Node) stack. 
 
 ## Table Row 
 - todo_id : SERIAL PRIMARY KEY
