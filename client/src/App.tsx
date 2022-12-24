@@ -11,17 +11,7 @@ type TodoList = {
 
 function App() {
 	const [desc, setDesc] = useState<String>('')
-	const [todoList, setTodoList] = useState<Array<TodoList>>([])
-	
-	const getTodo = () => {
-		axios.get('http://localhost:5000/todos')
-			.then(
-				(res) => {
-					setTodoList([...res.data])
-				}
-			)
-	}
-	
+	const [todoList, setTodoList] = useState<Array<TodoList>>([])	
 	
 	const addTodo = (desc: String) => {
 		axios.post('http://localhost:5000/todos', {
@@ -30,17 +20,26 @@ function App() {
 		.then(
 			(res) => {
 				console.log('added new todo')
+				getTodo()
 			}
 		)
-		getTodo()
 	}	
 	
 	const deleteTodo = (id: Number) => {
 		axios.delete(`http://localhost:5000/todos/${id}`)
 			.then((res) => {
 				console.log(`deleted a todo at id = ${id}`)
+				getTodo()
 			})
-		getTodo()
+	}
+
+	const getTodo = () => {
+		axios.get('http://localhost:5000/todos')
+			.then(
+				(res) => {
+					setTodoList([...res.data])
+				}
+			)
 	}
 
 	useEffect(() => {
